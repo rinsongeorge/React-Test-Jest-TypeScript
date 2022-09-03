@@ -10,7 +10,6 @@ const App: FC = () => {
     <React.Fragment>
       <Header />
       <Container>
-        {/* <Row className="mt-5">{movieList}</Row> */}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MovieCardList />}>

@@ -28,8 +28,22 @@ test("Movie card click event", () => {
       remove={handleClick}
     />
   );
-  const linkElement = screen.getByTestId("card");
+  // const linkElement = screen.getByTestId("card-button");
+  const linkElement = screen.getByRole("button");  
   fireEvent.click(linkElement);
-  // expect(handleClick).toHaveBeenCalledTimes(1)
-  // const linkElement1 = screen.getByTestId("card");
+  expect(handleClick).toHaveBeenCalledTimes(1)
+});
+
+test("Vikram title", () => {
+  render(
+    <MovieCard
+      id={1}
+      desc={
+        "A high-octane action film where a special investigator is assigned a case of serial Killings, he finds the case is not what it seems to be and leading down this path is only going to end in a war between everyone involved."
+      }
+      remove={jest.fn()}
+    />
+  );
+  const linkElement = screen.getByText("Vikram 2022");
+  expect(linkElement).toBeInTheDocument();
 });
